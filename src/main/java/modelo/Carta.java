@@ -10,5 +10,13 @@ package modelo;
  * @author andre
  */
 public class Carta {
+    private int numero;
+    private String nombre;
+    private String rutaImagen;
     
+    public void Carta(int numero,String nombre,String rutaImagen){
+        this.numero=numero;
+        this.nombre=nombre;
+        this.rutaImagen=rutaImagen;
+    }
 }

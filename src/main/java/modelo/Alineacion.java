@@ -9,6 +9,8 @@ package modelo;
  *
  * @author andre
  */
-public class Alineacion {
-    
+public enum Alineacion {
+    ESQUINA,
+    FILA,
+    COLUMNA
 }

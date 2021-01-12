@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="474.0" prefWidth="495.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="474.0" prefWidth="495.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.proyectopoo.proyecto_poo_g10_p02.MenuPrincipalController">
    <children>
       <Label alignment="CENTER" prefHeight="58.0" prefWidth="258.0" text="Menu Principal">
          <font>
@@ -24,7 +24,7 @@
          </VBox.margin>
       </Button>
       <Separator prefHeight="18.0" prefWidth="495.0" visible="false" />
-      <Button mnemonicParsing="false" prefHeight="73.0" prefWidth="233.0" text="Configuración">
+      <Button fx:id="configuracionButton" mnemonicParsing="false" onAction="#cambiarConfiguracion" prefHeight="73.0" prefWidth="233.0" text="Configuración">
          <font>
             <Font size="24.0" />
          </font>
