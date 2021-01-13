@@ -23,4 +23,8 @@ public class MenuPrincipalController {
     private void cambiarReporte() throws IOException{
         App.setRoot("Reporte");
     }
+    
+    private void cambiarJuego() throws IOException{
+        App.setRoot("Nombre");
+    }
 }
