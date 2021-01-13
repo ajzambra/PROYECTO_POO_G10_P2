@@ -9,6 +9,12 @@ package modelo;
  *
  * @author andre
  */
+import java.util.ArrayList;
+
 public class Tablero {
+    private ArrayList<CartaJuego> cartas = new ArrayList<CartaJuego>();
     
+    public void llenarTablero(ArrayList<CartaJuego> cartas){
+        
+    }
 }

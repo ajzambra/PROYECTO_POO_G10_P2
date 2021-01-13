@@ -10,5 +10,7 @@ package modelo;
  * @author andre
  */
 public class Configuracion {
+    private boolean visible;
+    private int numOponentes;
     
 }

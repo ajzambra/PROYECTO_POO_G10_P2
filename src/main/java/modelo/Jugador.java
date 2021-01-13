@@ -10,5 +10,10 @@ package modelo;
  * @author andre
  */
 public class Jugador {
+    private String nombre;
+    private Tablero tablero;
     
+    public void verificarTablero(){
+        
+    }
 }

@@ -10,5 +10,10 @@ package modelo;
  * @author andre
  */
 public class CartaJuego {
+    private Carta carta;
+    private boolean marcada;
     
+    public void marcarCarta(){
+        
+    }
 }

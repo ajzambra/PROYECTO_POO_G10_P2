@@ -4,11 +4,22 @@
  * and open the template in the editor.
  */
 package modelo;
-
+import java.util.ArrayList;
 /**
  *
  * @author andre
  */
 public class Juego {
+    private String fecha;
+    private int duracion;
+    private ArrayList <Jugador> jugadores = new ArrayList<Jugador>();
+    private Jugador ganador;
+    private Configuracion configuracion;
+    private Mazo mazo;
+    private ArrayList <Carta> cartasJugadas = new ArrayList<Carta>();
+    private Alineacion alineacion;
     
+    public void verificarJuego(){
+        
+    }
 }
