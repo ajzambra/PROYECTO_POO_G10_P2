@@ -16,17 +16,4 @@ public class CartaJuego {
     public void marcarCarta(){
         
     }
-    
-    public Carta getCarta(){
-        return carta;
-    }
-    
-    public boolean getMarcada(){
-        return marcada;
-    }
-    
-    public String toString(){
-        return ("Carta: "+carta+", Marcada:"+marcada);
-    }
-    
 }
