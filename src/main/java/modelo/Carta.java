@@ -20,7 +20,25 @@ public class Carta {
         this.rutaImagen=rutaImagen;
     }
     
+    public int getNumero(){
+        return numero;
+    }
+    
+    public String getNombre(){
+        return nombre;
+    }
+    
+    public String getRutaImagen(){
+        return rutaImagen;
+    }
+    
+    
     public void equials(Carta c){
         
+    }
+    
+    @Override
+    public String toString(){
+        return ("Numero: "+numero+", Nombre: "+nombre+", Ruta de Imagen: "+rutaImagen);
     }
 }
