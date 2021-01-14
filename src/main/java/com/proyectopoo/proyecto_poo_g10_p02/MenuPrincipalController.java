@@ -24,6 +24,7 @@ public class MenuPrincipalController {
         App.setRoot("Reporte");
     }
     
+    @FXML
     private void cambiarJuego() throws IOException{
         App.setRoot("Nombre");
     }
