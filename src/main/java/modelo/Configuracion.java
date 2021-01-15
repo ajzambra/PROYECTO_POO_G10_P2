@@ -5,12 +5,19 @@
  */
 package modelo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author andre
  */
-public class Configuracion {
+public class Configuracion implements Serializable{
     private boolean visible;
     private int numOponentes;
+
+    public Configuracion(boolean visible, int numOponentes) {
+        this.visible = visible;
+        this.numOponentes = numOponentes;
+    }
     
 }
