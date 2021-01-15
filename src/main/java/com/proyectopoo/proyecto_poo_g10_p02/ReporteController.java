@@ -18,20 +18,28 @@ import java.io.ObjectInputStream;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import modelo.Juego;
 
 public class ReporteController {
+    private ObservableList<Juego> reportes;
     @FXML
-    private ListView listaDatos;
+    private ListView<Juego> listaDatos;
     
     @FXML
     private void regresarM() throws IOException{
         App.setRoot("Menu_Principal");
     }
     
-    public void Reporte(){
+    @FXML
+    private void creaReporte()throws IOException{
+        reporte();
+    }
+    
+    public void reporte(){
         String ruta="src/recursos/reporte.bin";
         List<Juego> partidas=null;
         
@@ -44,9 +52,9 @@ public class ReporteController {
             Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
         }catch(IOException ex){
             System.out.println(ex.getMessage());
-        } 
-        
-        
+        }
+        reportes= FXCollections.observableArrayList(partidas);
+        listaDatos.setItems(reportes);
     }
     
     

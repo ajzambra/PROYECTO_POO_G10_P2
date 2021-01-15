@@ -10,6 +10,7 @@ import java.util.ArrayList;
  * @author andre
  */
 public class Juego {
+    private String numJuego;
     private String fecha;
     private int duracion;
     private ArrayList <Jugador> jugadores = new ArrayList<Jugador>();
@@ -18,6 +19,8 @@ public class Juego {
     private Mazo mazo;
     private ArrayList <Carta> cartasJugadas = new ArrayList<Carta>();
     private Alineacion alineacion;
+    private Tablero tablero;
+    
     
     public void verificarJuego(){
         
