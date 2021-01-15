@@ -19,5 +19,21 @@ public class Configuracion implements Serializable{
         this.visible = visible;
         this.numOponentes = numOponentes;
     }
+
+    public boolean isVisible() {
+        return visible;
+    }
+
+    public int getNumOponentes() {
+        return numOponentes;
+    }
+
+    public void setVisible(boolean visible) {
+        this.visible = visible;
+    }
+
+    public void setNumOponentes(int numOponentes) {
+        this.numOponentes = numOponentes;
+    }
     
 }
