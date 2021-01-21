@@ -38,6 +38,7 @@ public class ConfiguracionController {
     
     @FXML
     private void iniciarConfiguracion(){
+        System.out.println(cantRivales.getText());
         if(cantRivales.getText()!=null){
             Configuracion c= new Configuracion();
             if(mostarCartas.isSelected()){
@@ -48,7 +49,7 @@ public class ConfiguracionController {
             c.setNumOponentes(Integer.parseInt(cantRivales.getText()));
             ObjectOutputStream objo = null;
             try{
-                objo = new ObjectOutputStream(new FileOutputStream(new File("src/recursos/Configuracion.bin")));
+                objo = new ObjectOutputStream(new FileOutputStream("recursos/Configuracion.bin"));
                 objo.writeObject(c);
 
             }catch(FileNotFoundException ex){
