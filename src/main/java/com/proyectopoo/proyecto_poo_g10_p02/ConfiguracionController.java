@@ -10,14 +10,16 @@ package com.proyectopoo.proyecto_poo_g10_p02;
  * @author andre
  */
 
-import java.awt.TextField;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.TextField;
 import modelo.Configuracion;
 
 public class ConfiguracionController {
@@ -34,14 +36,16 @@ public class ConfiguracionController {
         iniciarConfiguracion();
     }
     
+    @FXML
     private void iniciarConfiguracion(){
         if(cantRivales.getText()!=null){
-            Configuracion c=null;
+            Configuracion c= new Configuracion();
             if(mostarCartas.isSelected()){
-                c=new Configuracion(true,Integer.parseInt(cantRivales.getText()));
+                c.setVisible(true);
             }else{
-                c=new Configuracion(false,Integer.parseInt(cantRivales.getText()));
+                c.setVisible(true);
             }
+            c.setNumOponentes(Integer.parseInt(cantRivales.getText()));
             ObjectOutputStream objo = null;
             try{
                 objo = new ObjectOutputStream(new FileOutputStream(new File("src/recursos/Configuracion.bin")));
@@ -55,7 +59,7 @@ public class ConfiguracionController {
                 try{
                     objo.close();
                 }catch(IOException e){
-                    System.err.println(ex.getMessage());
+                    System.err.println(e.getMessage());
                 }
             }
         } 

@@ -14,10 +14,10 @@ import java.io.Serializable;
 public class Configuracion implements Serializable{
     private boolean visible;
     private int numOponentes;
-
-    public Configuracion(boolean visible, int numOponentes) {
-        this.visible = visible;
-        this.numOponentes = numOponentes;
+    
+    public Configuracion(){
+        this.visible=true;
+        this.numOponentes=1;
     }
 
     public boolean isVisible() {

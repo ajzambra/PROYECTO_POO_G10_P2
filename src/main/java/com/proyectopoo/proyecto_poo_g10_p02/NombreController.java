@@ -12,7 +12,22 @@ package com.proyectopoo.proyecto_poo_g10_p02;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 
 public class NombreController {
+    @FXML
+    Button cancelarbutton;
+    @FXML
+    Button obbutton;
+    
+    @FXML
+    private void regresarM() throws IOException{        
+        App.setRoot("Menu_Principal");
+    }
+    
+    @FXML
+    private void okJuego() throws IOException{
+        App.setRoot("Juego");
+    }
     
 }

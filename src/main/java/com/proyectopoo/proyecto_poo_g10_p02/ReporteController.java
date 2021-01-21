@@ -16,8 +16,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -39,6 +37,7 @@ public class ReporteController {
         reporte();
     }
     
+    @FXML
     public void reporte(){
         String ruta="src/recursos/reporte.bin";
         List<Juego> partidas=null;
@@ -49,7 +48,7 @@ public class ReporteController {
         }catch(FileNotFoundException ex){
             System.out.println(ex.getMessage());
         }catch (ClassNotFoundException ex) {
-            Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error");
         }catch(IOException ex){
             System.out.println(ex.getMessage());
         }
