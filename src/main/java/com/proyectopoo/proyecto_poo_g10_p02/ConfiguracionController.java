@@ -38,7 +38,6 @@ public class ConfiguracionController {
     
     @FXML
     private void iniciarConfiguracion(){
-        System.out.println(cantRivales.getText());
         if(cantRivales.getText()!=null){
             Configuracion c= new Configuracion();
             if(mostarCartas.isSelected()){
