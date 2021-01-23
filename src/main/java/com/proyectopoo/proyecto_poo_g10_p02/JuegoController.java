@@ -38,8 +38,8 @@ public class JuegoController {
             StackPane sp = new StackPane();
             Carta c = listc.get(i);
             System.out.println(c.getRutaImagen());
-            int fila = i/3;
-            int columna = i%3;
+            int fila = i/4;
+            int columna = i%4;
             ImageView imgViewFoto=new ImageView();//Creo la imagen
             InputStream input=null;
             try{
@@ -56,14 +56,15 @@ public class JuegoController {
                     System.out.println("no se pudo cerrar");
                 }
             }
-            //sp.getChildren().add(imgViewFoto);
-            gridC.add(imgViewFoto, fila, columna);
-            
-            
-            /*imgViewFoto.setOnMouseClicked(e->{
+            sp.getChildren().add(imgViewFoto);
+            imgViewFoto.setOnMouseClicked(e->{
                    Label lbx = new Label("X");
                    sp.getChildren().add(lbx);
-            });*/
+            });
+            gridC.add(sp, columna, fila);
+            
+            
+            
         }
     }
     vb.getChildren().add(gridC);
