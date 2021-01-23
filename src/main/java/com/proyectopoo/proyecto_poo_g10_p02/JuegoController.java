@@ -31,6 +31,14 @@ public class JuegoController {
     VBox vb;
     @FXML
     ImageView cartaJuego;
+    @FXML
+    VBox vbA;
+    @FXML
+    VBox vbO;
+    @FXML
+    GridPane gridA=new GridPane();
+    @FXML
+    GridPane gridO=new GridPane();
     
     
     @FXML
