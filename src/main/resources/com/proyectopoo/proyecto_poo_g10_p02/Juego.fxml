@@ -74,7 +74,7 @@
                </font>
             </Label>
             <Separator prefHeight="35.0" prefWidth="200.0" visible="false" />
-            <ImageView fitHeight="226.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="cartaJuego" fitHeight="226.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
             <Separator prefHeight="22.0" prefWidth="200.0" visible="false" />
             <ProgressBar prefWidth="200.0" progress="0.0" />
             <Separator prefHeight="35.0" prefWidth="200.0" visible="false" />
