@@ -14,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.layout.StackPane;
 import modelo.Carta;
 import modelo.Mazo;
@@ -23,7 +24,10 @@ import modelo.Mazo;
  * @author andre
  */
 public class JuegoController {
+    @FXML
     GridPane gridC=new GridPane();
+    @FXML
+    VBox vb;
     
     @FXML
     private void initialize() {
@@ -55,13 +59,14 @@ public class JuegoController {
             //sp.getChildren().add(imgViewFoto);
             gridC.add(imgViewFoto, fila, columna);
             
+            
             /*imgViewFoto.setOnMouseClicked(e->{
                    Label lbx = new Label("X");
                    sp.getChildren().add(lbx);
             });*/
         }
     }
-    
+    vb.getChildren().add(gridC);
         
 }
 }
