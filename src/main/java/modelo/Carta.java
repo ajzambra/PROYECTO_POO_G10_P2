@@ -14,7 +14,7 @@ public class Carta {
     private String nombre;
     private String rutaImagen;
     
-    public void Carta(int numero,String nombre,String rutaImagen){
+    public Carta(int numero,String nombre,String rutaImagen){
         this.numero=numero;
         this.nombre=nombre;
         this.rutaImagen=rutaImagen;
@@ -22,5 +22,13 @@ public class Carta {
     
     public void equials(Carta c){
         
+    }
+    
+    public String toString(){
+        return ("Numero: "+numero+", Nombre: "+nombre+", Ruta de Imagen:"+rutaImagen);
+    }
+    
+    public String getRutaImagen(){
+        return rutaImagen;
     }
 }

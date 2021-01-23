@@ -12,6 +12,7 @@ import java.io.IOException;
  * JavaFX App
  */
 public class App extends Application {
+    public static String ruta="filesDentro/cartasloteria.csv";
 
     private static Scene scene;
 
