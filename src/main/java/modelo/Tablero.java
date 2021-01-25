@@ -17,4 +17,7 @@ public class Tablero {
     public void llenarTablero(ArrayList<CartaJuego> cartas){
         
     }
+    public ArrayList<CartaJuego> getCartas(){
+        return cartas;
+    }
 }

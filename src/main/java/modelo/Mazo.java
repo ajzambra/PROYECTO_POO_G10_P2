@@ -54,7 +54,6 @@ public class Mazo {
     public void barajar(){
         leerArchivoCarta(App.ruta);
         Collections.shuffle(carta);
-        System.out.println(carta);
         
     }
     public ArrayList<Carta> getCartas(){

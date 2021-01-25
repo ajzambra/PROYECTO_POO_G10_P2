@@ -13,7 +13,24 @@ public class CartaJuego {
     private Carta carta;
     private boolean marcada;
     
+    public CartaJuego(Carta c){
+        carta=c;
+        marcada=false;
+    }
+    
     public void marcarCarta(){
-        
+        marcada=true;
+    }
+    
+    public boolean getmarcada(){
+        return marcada;
+    }
+    
+    public Carta getCarta(){
+        return carta;
+    }
+    
+    public String toString(){
+        return ("Carta: "+carta+", Marcada: "+marcada);
     }
 }
