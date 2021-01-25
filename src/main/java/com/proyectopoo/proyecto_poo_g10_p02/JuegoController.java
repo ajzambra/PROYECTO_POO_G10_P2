@@ -78,18 +78,14 @@ public class JuegoController {
       //int numeroaleatorio = (int) (4*Math.random()+1);
       
      //NECESITO MOSTRAR LA IMAGEN AL INICIALIZAR EN EL VBA DE LA IZQUIERDA
+     vbA.setAlignment(Pos.TOP_LEFT);
      StackPane spAlineacion= new StackPane();
      Image prueba = mostrarAlineacion();
-     ImageView imgViewAlineacion= new ImageView();
-     imgViewAlineacion.setImage(prueba);
-     spAlineacion.getChildren().add(imgViewAlineacion);
+     ImageView ImagenAlineacion= new ImageView();
+     ImagenAlineacion.setImage(prueba);
+     spAlineacion.getChildren().add(ImagenAlineacion);
      vbA.getChildren().add(spAlineacion);
          
-          
-          
-    
-    
-    
     
         
 }
@@ -114,6 +110,7 @@ public class JuegoController {
         return image;
     }
     //int numeroaleatorio = (int) (4*Math.random()+1);
+    //CREACION DEL METODO PARA MOSTRAR LA ALINEACION SIN ALEATORIO SOLO PARA PROBAR
     private Image mostrarAlineacion(){
         
         Image imagenAlineacion=null;
