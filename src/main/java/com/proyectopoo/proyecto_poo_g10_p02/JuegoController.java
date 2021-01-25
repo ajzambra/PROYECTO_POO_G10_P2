@@ -32,11 +32,11 @@ public class JuegoController {
     @FXML
     ImageView cartaJuego;
     @FXML
-    VBox vbA;
+    VBox vbA = new VBox(20);
     @FXML
     VBox vbO;
     @FXML
-    GridPane gridA=new GridPane();
+    ImageView ImagenAlineacion;
     @FXML
     GridPane gridO=new GridPane();
     
@@ -61,11 +61,36 @@ public class JuegoController {
                    sp.getChildren().add(lbx);
             });
             gridC.add(sp, columna, fila);
+            
+            
     }
     vb.getChildren().add(gridC);
     CambiarCarta ci=new CambiarCarta();
     ci.setDaemon(true);
     ci.start();
+     // PRIMERO REQUIERO QUE ELIJA ALGUNA DE LAS 4 POSIBLES FORMAS DE GANAR DE MANERA ALEATORIA
+     // LUEGO CREAR CADA UNA DE LAS 4 IMAGENES
+     // LUEGO SEGUN LA OPCION SELECCIONAR LA IMAGEN CORRESPONDIENTE
+     
+     //
+     
+     // NUMERO ALEATORIO ENTRE 1 Y 4
+      //int numeroaleatorio = (int) (4*Math.random()+1);
+      
+     //NECESITO MOSTRAR LA IMAGEN AL INICIALIZAR EN EL VBA DE LA IZQUIERDA
+     StackPane spAlineacion= new StackPane();
+     Image prueba = mostrarAlineacion();
+     ImageView imgViewAlineacion= new ImageView();
+     imgViewAlineacion.setImage(prueba);
+     spAlineacion.getChildren().add(imgViewAlineacion);
+     vbA.getChildren().add(spAlineacion);
+         
+          
+          
+    
+    
+    
+    
         
 }
     private Image mostrarC(Carta c){
@@ -87,6 +112,23 @@ public class JuegoController {
             } 
         }
         return image;
+    }
+    //int numeroaleatorio = (int) (4*Math.random()+1);
+    private Image mostrarAlineacion(){
+        
+        Image imagenAlineacion=null;
+        InputStream inputAlineacion=null;
+        try{
+            inputAlineacion=App.class.getResource("filesDentro/filasalineacionganadora.png").openStream();
+            imagenAlineacion= new Image(inputAlineacion,20,20,false,false);
+        }
+        catch(Exception ex){
+            System.out.println("NO SE ENCUENTRA EL ARCHIVO");
+        }
+        return imagenAlineacion;
+            
+        
+           
     }
     
     private class CambiarCarta extends Thread{
