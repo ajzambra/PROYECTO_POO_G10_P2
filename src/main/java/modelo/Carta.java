@@ -26,7 +26,7 @@ public class Carta {
     }
     
     public boolean equials(Carta c){
-        return (this == c);
+        return (this.getNombre().equals(c.getNombre()));
     }
     
     public String toString(){
@@ -55,5 +55,13 @@ public class Carta {
             } 
         }
         return image;
+    }
+    
+    public int getNumero(){
+        return numero;
+    }
+    
+    public String getNombre(){
+        return nombre;
     }
 }

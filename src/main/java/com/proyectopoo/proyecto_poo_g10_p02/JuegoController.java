@@ -39,8 +39,10 @@ public class JuegoController {
     GridPane gridO=new GridPane();
     @FXML
     ImageView ImagenAlineacion= new ImageView();
-    Carta cartaenJ;
+    
     ArrayList<CartaJuego> listcJ=new ArrayList<CartaJuego>();
+    
+    Carta cartaenJ;
     
     
     @FXML
@@ -63,30 +65,30 @@ public class JuegoController {
             sp.getChildren().add(imgViewFoto);
             imgViewFoto.setOnMouseClicked(e->{
                 ImageView imgF=new ImageView();
-                
                 if(ca.equials(cartaenJ)){
                     Image image=null;
                     InputStream input=null;
-                try{
-                    input=App.class.getResource("filesDentro/images/bean.jpg").openStream();//creo la ruta
-                    image=new Image(input,25,25,false,false);//La asigno en objeto imagen   
-                }catch(Exception  ex){
-                    System.out.println("no se encuentra archivo de imagen");
-                }finally{
-                    if (input != null) {
-                    try {
-                        input.close();//Cierro el archivo
-                    } catch (IOException ex) {
-                        System.out.println("no se pudo cerrar");
-                        }
-                    } 
+                    try{
+                        input=App.class.getResource("filesDentro/images/bean.jpg").openStream();//creo la ruta
+                        image=new Image(input,25,25,false,false);//La asigno en objeto imagen   
+                    }catch(Exception  ex){
+                        System.out.println("no se encuentra archivo de imagen");
+                    }finally{
+                        if (input != null) {
+                        try {
+                            input.close();//Cierro el archivo
+                        } catch (IOException ex) {
+                            System.out.println("no se pudo cerrar");
+                            }
+                        } 
+                    }
+                    imgF.setImage(image);
+                    sp.getChildren().add(imgF);
+                
                 }
-                imgF.setImage(image);
-                }
                 
                 
-                
-                sp.getChildren().add(imgF);
+
             });
             
             CartaJuego cj=new CartaJuego(ca);
