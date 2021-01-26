@@ -8,9 +8,13 @@ package com.proyectopoo.proyecto_poo_g10_p02;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Optional;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -104,6 +108,7 @@ public class JuegoController {
             listcJ.add(cartags);
             
     }
+        System.out.println(listcJ);
     t.llenarTablero(listcJ);
     vb.getChildren().add(gridC);
     CambiarCarta ci=new CambiarCarta();
@@ -160,14 +165,109 @@ public class JuegoController {
         }else{
             al=Alineacion.FILA;
         }
+        System.out.println(al);
         return imagenAlineacion;
             
         
            
     }
     
+    @FXML
     public void comprobarJ(){
-        
+        ArrayList<CartaJuego> listac=t.getCartas();
+        boolean condiTo=false;
+        int i=0;
+        if (al.equals(Alineacion.COLUMNA)){
+            boolean condi1 = listac.get(0).getmarcada();
+            boolean condi2 = listac.get(4).getmarcada();
+            boolean condi3 = listac.get(8).getmarcada();
+            boolean condi4 = listac.get(12).getmarcada();
+            condiTo=condi1 && condi2 && condi3 && condi4;
+            if(condiTo==false){
+                condi1 = listac.get(1).getmarcada();
+                condi2 = listac.get(5).getmarcada();
+                condi3 = listac.get(9).getmarcada();
+                condi4 = listac.get(13).getmarcada();
+                condiTo=condi1 && condi2 && condi3 && condi4;
+            }
+            if(condiTo==false){
+                condi1 = listac.get(2).getmarcada();
+                condi2 = listac.get(6).getmarcada();
+                condi3 = listac.get(10).getmarcada();
+                condi4 = listac.get(14).getmarcada();
+                condiTo=condi1 && condi2 && condi3 && condi4;
+            }
+            if(condiTo==false){
+                condi1 = listac.get(3).getmarcada();
+                condi2 = listac.get(7).getmarcada();
+                condi3 = listac.get(11).getmarcada();
+                condi4 = listac.get(15).getmarcada();
+                condiTo=condi1 && condi2 && condi3 && condi4;
+                }
+            
+            
+        }if(al.equals(Alineacion.ESQUINA)){
+            while(i<16){
+                boolean condi1 = listac.get(0).getmarcada();
+                boolean condi2 = listac.get(3).getmarcada();
+                boolean condi3 = listac.get(12).getmarcada();
+                boolean condi4 = listac.get(15).getmarcada();
+                condiTo=condi1 && condi2 && condi3 && condi4;
+                i=16;
+            }
+        }if(al.equals(Alineacion.ESQUINAC)){
+                boolean condi1 = listac.get(0).getmarcada();
+                boolean condi2 = listac.get(1).getmarcada();
+                boolean condi3 = listac.get(4).getmarcada();
+                boolean condi4 = listac.get(5).getmarcada();
+                condiTo=condi1 && condi2 && condi3 && condi4;
+                if(condiTo==false){
+                    condi1 = listac.get(2).getmarcada();
+                    condi2 = listac.get(3).getmarcada();
+                    condi3 = listac.get(6).getmarcada();
+                    condi4 = listac.get(7).getmarcada();
+                    condiTo=condi1 && condi2 && condi3 && condi4;
+                }
+                if(condiTo==false){
+                    condi1 = listac.get(8).getmarcada();
+                    condi2 = listac.get(9).getmarcada();
+                    condi3 = listac.get(12).getmarcada();
+                    condi4 = listac.get(13).getmarcada();
+                    condiTo=condi1 && condi2 && condi3 && condi4;
+                }
+                if(condiTo==false){
+                    condi1 = listac.get(10).getmarcada();
+                    condi2 = listac.get(11).getmarcada();
+                    condi3 = listac.get(14).getmarcada();
+                    condi4 = listac.get(15).getmarcada();
+                    condiTo=condi1 && condi2 && condi3 && condi4;
+                }
+        }if(al.equals(Alineacion.FILA)){
+            while(i<16){
+                boolean condi1 = listac.get(i).getmarcada();
+                boolean condi2 = listac.get(i+1).getmarcada();
+                boolean condi3 = listac.get(i+2).getmarcada();
+                boolean condi4 = listac.get(i+3).getmarcada();
+                condiTo=condi1 && condi2 && condi3 && condi4;
+                i+=4;
+            }
+        }
+        if(condiTo==true){
+                System.out.println("Gano");
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("!!!GANO¡¡¡");
+                alert.setHeaderText(null);
+                alert.setContentText("CONSIGIO COMPLETAR LA ALINEACIÓN GANADORA");
+
+                Optional<ButtonType> result = alert.showAndWait();
+                if(result.get() == ButtonType.OK){
+                    try {
+                        App.setRoot("Menu Principal");
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }
     }
     
     private class CambiarCarta extends Thread{
