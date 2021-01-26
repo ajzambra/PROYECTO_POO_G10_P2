@@ -15,7 +15,7 @@ public class Tablero {
     private ArrayList<CartaJuego> cartas = new ArrayList<CartaJuego>();
     
     public void llenarTablero(ArrayList<CartaJuego> cartas){
-        
+        this.cartas=cartas;
     }
     public ArrayList<CartaJuego> getCartas(){
         return cartas;

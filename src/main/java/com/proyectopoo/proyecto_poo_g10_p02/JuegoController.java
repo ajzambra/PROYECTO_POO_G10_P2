@@ -10,11 +10,13 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.StackPane;
+import modelo.Alineacion;
 import modelo.Carta;
 import modelo.CartaJuego;
 import modelo.Mazo;
@@ -39,10 +41,16 @@ public class JuegoController {
     GridPane gridO=new GridPane();
     @FXML
     ImageView ImagenAlineacion= new ImageView();
+    @FXML
+    Button bLoteria;
     
-    ArrayList<CartaJuego> listcJ=new ArrayList<CartaJuego>();
+    ArrayList<CartaJuego> listcJ;
+    
+    Tablero t;
     
     Carta cartaenJ;
+    
+    Alineacion al;
     
     
     @FXML
@@ -51,12 +59,12 @@ public class JuegoController {
         Mazo m = new Mazo();
         m.barajar();
         ArrayList<Carta> listc=m.getCartas();
-        Tablero t=new Tablero();
-        t.llenarTablero(listcJ);
-        ArrayList<CartaJuego> tcarta=t.getCartas();
+        listcJ=new ArrayList<CartaJuego>();
+        t=new Tablero();
         for (int i=0;i<16;i++){
             StackPane sp = new StackPane();
             Carta ca = listc.get(i);
+            CartaJuego cartags=new CartaJuego(ca);
             int fila = i/4;
             int columna = i%4;
             Image imag =ca.mostrarC();
@@ -66,6 +74,7 @@ public class JuegoController {
             imgViewFoto.setOnMouseClicked(e->{
                 ImageView imgF=new ImageView();
                 if(ca.equials(cartaenJ)){
+                    cartags.marcarCarta();
                     Image image=null;
                     InputStream input=null;
                     try{
@@ -91,14 +100,11 @@ public class JuegoController {
 
             });
             
-            CartaJuego cj=new CartaJuego(ca);
-            listcJ.add(cj);
-            
             gridC.add(sp, columna, fila);
-            
+            listcJ.add(cartags);
             
     }
-        t.llenarTablero(listcJ);
+    t.llenarTablero(listcJ);
     vb.getChildren().add(gridC);
     CambiarCarta ci=new CambiarCarta();
     ci.setDaemon(true);
@@ -143,10 +149,25 @@ public class JuegoController {
                         }
                     } 
                 }
+        if(numero==1){
+            al=Alineacion.COLUMNA;
+        }
+        if(numero==2){
+            al=Alineacion.ESQUINAC;
+        }
+        if(numero==3){
+            al=Alineacion.ESQUINA;
+        }else{
+            al=Alineacion.FILA;
+        }
         return imagenAlineacion;
             
         
            
+    }
+    
+    public void comprobarJ(){
+        
     }
     
     private class CambiarCarta extends Thread{
@@ -171,6 +192,8 @@ public class JuegoController {
             }
         }
     }
+    
+    
 }
 
 

@@ -71,6 +71,6 @@
          </children>
       </VBox>
       <Separator orientation="VERTICAL" prefHeight="437.0" prefWidth="45.0" />
-      <Button fx:id="buttonLoteria" alignment="CENTER" mnemonicParsing="false" prefHeight="443.0" prefWidth="67.0" text="LOTERIA" />
+      <Button fx:id="bLoteria" alignment="CENTER" mnemonicParsing="false" onAction="#comprobarJ" prefHeight="443.0" prefWidth="67.0" text="LOTERIA" />
    </children>
 </HBox>
