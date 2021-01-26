@@ -113,8 +113,9 @@ public class JuegoController {
       //int numeroaleatorio = (int) (4*Math.random()+1);
       
      //NECESITO MOSTRAR LA IMAGEN AL INICIALIZAR EN EL VBA DE LA IZQUIERDA
+     int numeroaleatorio = (int) (4*Math.random()+1);
      vbA.setAlignment(Pos.CENTER);
-     Image prueba = mostrarAlineacion();
+     Image prueba = mostrarAlineacion(numeroaleatorio);
      ImagenAlineacion.setImage(prueba);
      vbA.getChildren().add(ImagenAlineacion);
          
@@ -122,14 +123,14 @@ public class JuegoController {
         
 }
 
-    //int numeroaleatorio = (int) (4*Math.random()+1);
+  
     //CREACION DEL METODO PARA MOSTRAR LA ALINEACION SIN ALEATORIO SOLO PARA PROBAR
-    private Image mostrarAlineacion(){
-        
+    private Image mostrarAlineacion(int numero){
+    
         Image imagenAlineacion=null;
         InputStream inputAlineacion=null;
         try{
-                    inputAlineacion=App.class.getResource("filesDentro/columnasalineacionganadora.png").openStream();//creo la ruta
+                    inputAlineacion=App.class.getResource("filesDentro/"+String.valueOf(numero)+".png").openStream();//creo la ruta
                     imagenAlineacion=new Image(inputAlineacion,200,200,false,false);//La asigno en objeto imagen   
                 }catch(Exception  ex){
                     System.out.println("no se encuentra archivo de imagen");
