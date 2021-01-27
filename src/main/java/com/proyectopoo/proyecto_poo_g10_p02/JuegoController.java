@@ -15,6 +15,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -40,13 +42,15 @@ public class JuegoController {
     @FXML
     VBox vbA = new VBox(20);
     @FXML
-    VBox vbO;
+    VBox vbO = new VBox(20);
     @FXML
     GridPane gridO=new GridPane();
     @FXML
     ImageView ImagenAlineacion= new ImageView();
     @FXML
     Button bLoteria;
+    @FXML
+    TextField tf;
     
     ArrayList<CartaJuego> listcJ;
     
@@ -55,6 +59,10 @@ public class JuegoController {
     Carta cartaenJ;
     
     Alineacion al;
+    
+    ArrayList<CartaJuego> listcJOP;
+    Tablero tOP;
+    Carta cartaenJOP;
     
     
     @FXML
@@ -129,7 +137,59 @@ public class JuegoController {
      Image prueba = mostrarAlineacion(numeroaleatorio);
      ImagenAlineacion.setImage(prueba);
      vbA.getChildren().add(ImagenAlineacion);
-     
+     // OPONENTE
+     /*vbO.setAlignment(Pos.CENTER);
+     Mazo moponente = new Mazo();
+        m.barajar();
+        ArrayList<Carta> listcoponente=moponente.getCartas();
+        listcJOP=new ArrayList<>();
+        tOP=new Tablero();
+        for (int i=0;i<16;i++){
+            StackPane sp = new StackPane();
+            Carta ca = listcoponente.get(i);
+            CartaJuego cartags=new CartaJuego(ca);
+            int fila = i/4;
+            int columna = i%4;
+            Image imag =ca.mostrarC();
+            ImageView imgViewFoto=new ImageView();//Creo la imagen
+            imgViewFoto.setImage(imag);//Establesco la imagen    
+            sp.getChildren().add(imgViewFoto);
+            imgViewFoto.setOnMouseClicked(e->{
+                ImageView imgF=new ImageView();
+                if(ca.equials(cartaenJOP)){
+                    cartags.marcarCarta();
+                    Image image=null;
+                    InputStream input=null;
+                    try{
+                        input=App.class.getResource("filesDentro/images/bean.jpg").openStream();//creo la ruta
+                        image=new Image(input,10,10,false,false);//La asigno en objeto imagen   
+                    }catch(Exception  ex){
+                        System.out.println("no se encuentra archivo de imagen");
+                    }finally{
+                        if (input != null) {
+                        try {
+                            input.close();//Cierro el archivo
+                        } catch (IOException ex) {
+                            System.out.println("no se pudo cerrar");
+                            }
+                        } 
+                    }
+                    imgF.setImage(image);
+                    sp.getChildren().add(imgF);
+                
+                }
+                
+                
+
+            });
+            
+            gridO.add(sp, columna, fila);
+            listcJOP.add(cartags);
+            
+    }
+        System.out.println(listcJOP);
+    tOP.llenarTablero(listcJOP);
+    vbO.getChildren().add(gridO);*/
          
     
         
