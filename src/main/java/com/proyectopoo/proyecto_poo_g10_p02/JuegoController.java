@@ -135,7 +135,7 @@ public class JuegoController {
 }
 
   
-    //CREACION DEL METODO PARA MOSTRAR LA ALINEACION SIN ALEATORIO SOLO PARA PROBAR
+    //CREACION DEL METODO PARA MOSTRAR LA ALINEACION 
     private Image mostrarAlineacion(int numero){
     
         Image imagenAlineacion=null;
@@ -176,6 +176,7 @@ public class JuegoController {
     public void comprobarJ(){
         ArrayList<CartaJuego> listac=t.getCartas();
         boolean condiTo=false;
+       
         int i=0;
         if (al.equals(Alineacion.COLUMNA)){
             boolean condi1 = listac.get(0).getmarcada();
@@ -243,14 +244,19 @@ public class JuegoController {
                     condiTo=condi1 && condi2 && condi3 && condi4;
                 }
         }if(al.equals(Alineacion.FILA)){
-            while(i<16){
-                boolean condi1 = listac.get(i).getmarcada();
+            int variablecontrol=0;
+            do{boolean condi1 = listac.get(i).getmarcada();
                 boolean condi2 = listac.get(i+1).getmarcada();
                 boolean condi3 = listac.get(i+2).getmarcada();
                 boolean condi4 = listac.get(i+3).getmarcada();
                 condiTo=condi1 && condi2 && condi3 && condi4;
-                i+=4;
-            }
+                if (condiTo == true){
+                    variablecontrol=1;
+                }
+                i+=4;}
+            while(i<16 && variablecontrol<=0 ); //&& variablecontrol<0){
+                
+            
         }
         if(condiTo==true){
                 System.out.println("Gano");
