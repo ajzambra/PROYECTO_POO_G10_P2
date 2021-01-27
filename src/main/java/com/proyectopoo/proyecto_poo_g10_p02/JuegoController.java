@@ -129,6 +129,7 @@ public class JuegoController {
      Image prueba = mostrarAlineacion(numeroaleatorio);
      ImagenAlineacion.setImage(prueba);
      vbA.getChildren().add(ImagenAlineacion);
+     
          
     
         
@@ -172,11 +173,14 @@ public class JuegoController {
            
     }
     
+    
+    
+    
     @FXML
     public void comprobarJ(){
         ArrayList<CartaJuego> listac=t.getCartas();
         boolean condiTo=false;
-       
+     
         int i=0;
         if (al.equals(Alineacion.COLUMNA)){
             boolean condi1 = listac.get(0).getmarcada();
@@ -208,12 +212,14 @@ public class JuegoController {
             
             
         }if(al.equals(Alineacion.ESQUINA)){
-            while(i<16){
+            
+            while(i<16 ){
                 boolean condi1 = listac.get(0).getmarcada();
                 boolean condi2 = listac.get(3).getmarcada();
                 boolean condi3 = listac.get(12).getmarcada();
                 boolean condi4 = listac.get(15).getmarcada();
                 condiTo=condi1 && condi2 && condi3 && condi4;
+                
                 i=16;
             }
         }if(al.equals(Alineacion.ESQUINAC)){
